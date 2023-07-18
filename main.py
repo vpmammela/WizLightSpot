@@ -58,7 +58,13 @@ while True:
                 }
 
             if off_hour <= current_time.hour <= on_hour:
-                command['params']['state'] = 'false'  # Turn on the light
+                command = {
+                    'id': 1,
+                    'method': 'setPilot',
+                    'params': {
+                        'state': 'false'
+                    }
+                }
 
             command_string = json.dumps(command)
             message = command_string.encode()
