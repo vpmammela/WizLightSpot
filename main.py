@@ -57,7 +57,7 @@ while True:
                     }
                 }
 
-            if off_hour <= current_time.hour <= on_hour:
+            if off_hour >= current_time.hour <= on_hour:
                 command = {
                     'id': 1,
                     'method': 'setPilot',
@@ -66,6 +66,7 @@ while True:
                     }
                 }
 
+            print(command)
             command_string = json.dumps(command)
             message = command_string.encode()
 
